@@ -1,0 +1,84 @@
+<div id="map" style="height: 500px; width: 700px"></div>
+    <script>
+    function initMap() {
+  var myLatLng = {lat: <%= @location.latitude || 52.499138 %>, lng: <%= @location.longitude || 13.449807 %>};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    draggable: true,
+  });
+
+  function handleDragend(mouseEvent) {
+    $('#location_latitude').val(marker.getPosition().lat())
+    $('#location_longitude').val(marker.getPosition().lng())
+  }
+  function handleDrag(mouseEvent) {
+    $('#coordinates').html(marker.getPosition().lat() + ", " + marker.getPosition().lng())
+  }
+
+  marker.addListener('dragend', handleDragend);
+  marker.addListener('drag', handleDrag);
+
+  var point = marker.getPosition();
+  map.panTo(point);
+
+  localStorage['lastLat'] = point.lat();
+  localStorage['lastLng'] = point.lng();
+}
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgfmYcnR_ODZPi8R2Q4s-LR2L5uX3gfMo&callback=initMap"
+    async defer></script>
+<br>
+Your current position
+<div id="coordinates">
+
+</div>
+
+
+
+
+
+<%= form_for(@location) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
+
+  <%= f.label :growing_status %>
+  <%= f.text_field :growing_status %>
+
+  <%= f.label :permission %>
+  <%= f.text_field :permission %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url %>
+
+  <% if @location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+      <% @location.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
