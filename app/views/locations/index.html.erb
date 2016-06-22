@@ -3,8 +3,20 @@
 <h1>edible hood</h1>
 
 <div id="map" style="height: 500px; width: 700px"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgfmYcnR_ODZPi8R2Q4s-LR2L5uX3gfMo&callback=initMap"
-    async defer></script>
+
+
+  <script>
+    function initMap() {
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: myLatLng
+  });
+
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgfmYcnR_ODZPi8R2Q4s-LR2L5uX3gfMo&callback=initMap"
+  async defer></script>
 
 
 <h2>Listing Locations</h2>
