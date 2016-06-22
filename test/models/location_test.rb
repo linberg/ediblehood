@@ -7,17 +7,17 @@ class LocationTest < ActiveSupport::TestCase
   	assert location.valid?
   end
 
-  test "takes a invalid location" do
+  test "is invalid without email" do
     location = Location.new(title: "pumpkin", latitude: 52.49041114406387, longitude: 13.466715645629847)
     assert location.invalid?
   end
 
-  test "takes a invalid location" do
+  test "is invalid without title" do
     location = Location.new(email: "foo@bar.com", latitude: 52.49041114406387, longitude: 13.466715645629847)
     assert location.invalid?
   end
 
-  test "takes a invalid location" do
+  test "is invalid without latitude" do
     location = Location.new(email: "foo@bar.com", title: "pumpkin", longitude: 13.466715645629847)
     assert location.invalid?
   end
