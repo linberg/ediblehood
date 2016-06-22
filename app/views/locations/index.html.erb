@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Locations</h1>
+<h1>edible hood</h1>
+
+<h2>Listing Locations</h2>
 
 <table>
   <thead>
@@ -13,10 +15,12 @@
     <% @locations.each do |location| %>
       <tr>
         <td><%= location.title %></td>
-        <td><%= image_tag location.image_url, height: 100 %></td>
+        <td><%= image_tag location.image_url, height: 100%></td>
         <td><%= location.email %></td>
-        <td><%= location.longitude %></td>
+        
+        <td>  </td>
         <td><%= location.latitude %></td>
+
         <td><%= link_to 'Show', location %></td>
         <td><%= link_to 'Edit', edit_location_path(location) %></td>
         <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
