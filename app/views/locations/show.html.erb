@@ -2,5 +2,10 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+<div>
+	<%= link_to 'Edit', edit_location_path(@location), class: "btn btn-default" %> 
+</div>
+
+<div>
+	<%= link_to 'Back', locations_path, class: "btn btn-default" %>
+</div>
