@@ -44,27 +44,41 @@ Your current position
 
 
 <%= form_for(@location) do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div> 
+    
+  <div class="form-group">  
+    <%= f.label :growing_status %>
+    <%= f.text_field :growing_status, class: "form-control" %>
+  </div>
+
+  
+  <div class="form-group">
+    <%= f.label :permission %>
+    <%= f.text_field :permission, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes %>
+    <%= f.text_field :notes, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url, class: "form-control" %>
+  </div>
 
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
 
-  <%= f.label :growing_status %>
-  <%= f.text_field :growing_status %>
-
-  <%= f.label :permission %>
-  <%= f.text_field :permission %>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes %>
-
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
 
   <% if @location.errors.any? %>
     <div id="error_explanation">
