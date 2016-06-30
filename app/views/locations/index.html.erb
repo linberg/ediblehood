@@ -38,9 +38,9 @@
         <td>  </td>
         <td><%= location.latitude %></td>
 
-        <td><%= link_to 'Show', location, class: "btn btn-default" %></td>
+        <td><%= link_to 'Show', location, class: "btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_location_path(location), class: "btn btn-default" %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-warning" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -50,7 +50,7 @@
 
 
 <div>
-<%= link_to 'New Location', new_location_path, class: "btn btn-default" %>
+<%= link_to 'New Location', new_location_path, class: "btn btn-primary" %>
 
 </div>
 
