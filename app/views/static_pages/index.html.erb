@@ -9,21 +9,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-  <div class="wrapper">
-    <nav class="navbar">
-      <ul class="nav navbar-nav">
-          <li><a href="/"> Home&nbsp;</a></li>
-          <li><a href="/static_pages/about"> About&nbsp;</a></li>
-          <li><a href="/locations"> Locations&nbsp;</a></li>
-          <li><a href="/static_pages/contact"> Contact&nbsp;</a></li>
-      </ul>
-    </nav>
-  </div> <!--end wrapper-->
+  <div class="edhood">
+  <img class="img-responsive" src="/assets/edhood.png">
+  </div>
 
 <%= yield %>
 
 </body>
+
+<footer id="colophone" class="site-footer">
+  &copy; 2016 Bergen &amp; Santro
+</footer>
+
 </html>
