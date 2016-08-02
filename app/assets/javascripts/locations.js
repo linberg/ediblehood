@@ -37,6 +37,7 @@ function buildMap(locations)
       this.infoWindow.open(map, this.marker);
     }).bind({infoWindow: infoWindow, marker: marker}));
   }
+
   var centerLat = (startLat + endLat) / 2;
   var centerLng = (startLng + endLng) / 2;
 
