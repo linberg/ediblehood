@@ -2,30 +2,27 @@
 
 <h1>Listing Locations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="locationsmap" style="width: 400px; height: 400px">
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.title %></td>
-        <td><%= image_tag location.image_url, height: 100 %></td>
-        <td><%= location.email %></td>
-        <td><%= location.longitude %></td>
-        <td><%= location.latitude %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgfmYcnR_ODZPi8R2Q4s-LR2L5uX3gfMo"></script>
 
-
+<script>
+var locations = [];
+<% for location in @locations %>
+  locations.push({
+    lat: <%= location.latitude %>,
+    lng: <%= location.longitude %>,
+    id: "<%= location.id %>",
+    title: "<%= location.title %>",
+    imageUrl: "<%= location.image_url %>",
+    createdAt: "<%= location.created_at %>",
+    permission: "<%= location.permission %>",
+    growingStatus: "<%= location.growing_status %>"
+  });
+<% end %>
+buildMap(locations);
+</script>
 
 <%= link_to 'New Location', new_location_path %>
