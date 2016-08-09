@@ -1,4 +1,4 @@
-<div id="map" style="height: 500px; width: 700px"></div>
+<div class="col-md-8" id="map" style="height: 500px; width: 700px"></div>
     <script>
     function initMap() {
   var myLatLng = {lat: <%= @location.latitude || 52.499138 %>, lng: <%= @location.longitude || 13.449807 %>};
@@ -39,10 +39,7 @@ Your current position
 
 </div>
 
-
-
-
-
+<div class="new-location form-group">
 <%= form_for(@location) do |f| %>
   
   <div class="form-group">
@@ -50,34 +47,40 @@ Your current position
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %>
-  </div> 
-    
-  <div class="form-group">  
-    <%= f.label :growing_status %>
-    <%= f.text_field :growing_status, class: "form-control" %>
-  </div>
+<div class="col-md-4 form-group field">
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+</div>
 
-  
-  <div class="form-group">
-    <%= f.label :permission %>
-    <%= f.text_field :permission, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :notes %>
-    <%= f.text_field :notes, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image_url %>
-    <%= f.text_field :image_url, class: "form-control" %>
-  </div>
-
+<div class="col-md-4 form-group field">
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
+</div>
+
+<div class="col-md-4 form-group field">
+  <%= f.label :growing_status %>
+  <%= f.text_field :growing_status, class: "form-control", placeholder: "Growing Status" %>
+</div>
+
+<div class="col-md-4 form-group field">
+  <%= f.label :permission %>
+  <%= f.text_field :permission, class: "form-control", placeholder: "Permission" %>
+</div>
+
+<div class="col-md-4 form-group field">
+  <%= f.label :notes %>
+  <%= f.text_field :notes, class: "form-control", placeholder: "Notes"  %>
+</div>
+
+<div class="col-md-4 form-group field">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
+</div>
+
+<div class="col-md-4 form-group field">
+  <%= f.label :image_url %>
+  <%= f.text_field :image_url, class: "form-control", placeholder: "Image URL"  %>
+</div>
 
 
   <% if @location.errors.any? %>
@@ -93,10 +96,21 @@ Your current position
   <% end %>
 
   <div class="actions">
-    <%= f.submit class: "btn btn-default" %>
+
+    <%
+      if @location.id 
+        submit_label = "Update"
+      else 
+        submit_label = "Create new Location"
+      end
+    %>
+
+    <%= f.submit submit_label, class: "btn btn-success" %>
+
   </div>
 
 
 
 
 <% end %>
+</div><!--end div newlocation-->
