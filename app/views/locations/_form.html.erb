@@ -41,6 +41,11 @@ Your current position
 
 <div class="new-location form-group">
 <%= form_for(@location) do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
 <div class="col-md-4 form-group field">
   <%= f.label :email %>
@@ -77,6 +82,7 @@ Your current position
   <%= f.text_field :image_url, class: "form-control", placeholder: "Image URL"  %>
 </div>
 
+
   <% if @location.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
@@ -90,7 +96,21 @@ Your current position
   <% end %>
 
   <div class="actions">
-    <%= f.submit :Update, class: "btn btn-success" %>
+
+    <%
+      if @location.id 
+        submit_label = "Update"
+      else 
+        submit_label = "Create new Location"
+      end
+    %>
+
+    <%= f.submit submit_label, class: "btn btn-success" %>
+
   </div>
+
+
+
+
 <% end %>
 </div><!--end div newlocation-->

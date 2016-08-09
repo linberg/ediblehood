@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  resources :locations
+  get 'first/about'
+  get 'locations/new'
+  get 'home/location_list'
+
+  resources :locations, :home
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   get '/static_pages/index'
   get '/static_pages/about'
   get '/static_pages/contact'
+  get '/static_pages/thank_you'
 
   # You can have the root of your site routed with "root"
   root 'static_pages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  get 'location_list/:id' => 'home#location_list'
+  get '/static_pages/contact' => 'thank_you#static_pages'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
