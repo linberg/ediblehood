@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-6 col-xs-4">
+  <%= form_tag("", method: "get") do %>
+    <div class="input-group">
+      <%= text_field_tag(:q, params[:q], class: "form-control", placeholder: "Search") %>
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      </span>
+    </div>
+  </div>
+<%= link_to("X", locations_path, class: "btn btn-danger") if params[:q] %>
+</div>
+<% end %>

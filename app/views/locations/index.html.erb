@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<center>
+<div class="locations-container">
+  <%= render 'search_form' %>
   <%= link_to 'Add Location', new_location_path, class: "btn btn-default locations-button" %>
   <div class="locationsmap" style="width: 800px; height: 600px">
   </div>
-</center>
+</div><!--end locations-container-->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgfmYcnR_ODZPi8R2Q4s-LR2L5uX3gfMo"></script>
 

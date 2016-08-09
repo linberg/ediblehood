@@ -41,8 +41,13 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
+.locations-container {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 .locations-button {
-  margin-left: 675px;
   margin-bottom: 10px;
 }
 

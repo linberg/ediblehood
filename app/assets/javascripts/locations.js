@@ -1,3 +1,4 @@
+var lastInfoWindow;
 function buildMap(locations)
 {
   $mapContainer = $('.locationsmap');
@@ -34,8 +35,14 @@ function buildMap(locations)
 
     var infoWindow = createLocationInfoWindow(location);
     marker.addListener('click', (function() {
+      if (lastInfoWindow) {
+        lastInfoWindow.close();
+      }
+
       this.infoWindow.open(map, this.marker);
+      lastInfoWindow = this.infoWindow;
     }).bind({infoWindow: infoWindow, marker: marker}));
+
   }
 
   var centerLat = (startLat + endLat) / 2;

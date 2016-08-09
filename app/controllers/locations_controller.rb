@@ -4,7 +4,12 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    if params[:q]
+      search_term = "%#{params[:q]}%"
+      @locations = Location.where("title like ? or notes like ?", search_term, search_term)
+    else
+      @locations = Location.all
+    end
   end
 
   # GET /locations/1
