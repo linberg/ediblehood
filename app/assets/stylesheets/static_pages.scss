@@ -9,7 +9,7 @@ body {
   height: 100%;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   text-align: center;
   font-weight: lighter;
@@ -39,6 +39,34 @@ h1, h2, h3 {
   height: auto !important;
   height: 100%;
   margin: 0 auto;
+}
+
+.about-container {
+  background-image: image-url("garden.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #464646;
+  padding:0;
+  margin:0;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+}
+
+.transbox {
+  margin: 120px;
+  background-color: #fff;
+  border: 3px solid #fff;
+  opacity: .7;
+}
+
+.about-text {
+  font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  text-align: center;
+  font-weight: lighter;
+  color: #fff;
 }
 
 .locations-container {
