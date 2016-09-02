@@ -41,44 +41,39 @@ Your current position
 
 <div class="new-location form-group">
 <%= form_for(@location) do |f| %>
-  
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+
+  <div class="col-md-3 col-xs-6 form-group">
+    <!--<%=  f.label :title %>-->
+    <%= f.text_field :title, class: "form-control", placeholder: "Title" %>
   </div>
 
-<div class="col-md-4 form-group field">
-  <%= f.label :email %>
+<div class="col-md-3 col-xs-6 form-group field">
+  <!--<%= f.label :email %>-->
   <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
 </div>
 
-<div class="col-md-4 form-group field">
+<div class="col-md-3 col-xs-6 form-group field">
   <%= f.hidden_field :latitude %>
   <%= f.hidden_field :longitude %>
 </div>
 
-<div class="col-md-4 form-group field">
-  <%= f.label :growing_status %>
+<div class="col-md-3 col-xs-6 form-group field">
+  <!--<%= f.label :growing_status %>-->
   <%= f.text_field :growing_status, class: "form-control", placeholder: "Growing Status" %>
 </div>
 
-<div class="col-md-4 form-group field">
-  <%= f.label :permission %>
+<div class="col-md-3 col-xs-6 form-group field">
+  <!--<%= f.label :permission %>-->
   <%= f.text_field :permission, class: "form-control", placeholder: "Permission" %>
 </div>
 
-<div class="col-md-4 form-group field">
-  <%= f.label :notes %>
+<div class="col-md-3 col-xs-6 form-group field">
+  <!--<%= f.label :notes %>-->
   <%= f.text_field :notes, class: "form-control", placeholder: "Notes"  %>
 </div>
 
-<div class="col-md-4 form-group field">
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control", placeholder: "Title"  %>
-</div>
-
-<div class="col-md-4 form-group field">
-  <%= f.label :image_url %>
+<div class="col-md-3 col-xs-6 form-group field">
+  <!-- <%= f.label :image_url %> -->
   <%= f.text_field :image_url, class: "form-control", placeholder: "Image URL"  %>
 </div>
 
@@ -96,21 +91,16 @@ Your current position
   <% end %>
 
   <div class="actions">
-
     <%
-      if @location.id 
+      if @location.id
         submit_label = "Update"
-      else 
+      else
         submit_label = "Create new Location"
       end
     %>
 
     <%= f.submit submit_label, class: "btn btn-success" %>
-
   </div>
-
-
-
 
 <% end %>
 </div><!--end div newlocation-->
