@@ -11,25 +11,25 @@
     </div>
     <div class="form-group">
       <%= label_tag :email, "Email Address" %>
-      <%= text_field_tag :email, nil, class: "form-control", placeholder: "Enter Email" %>
+      <%= email_field_tag :email, nil, class: "form-control", placeholder: "Enter Email", required: "required" %>
     </div>
     <div class="form-group">
       <%= label_tag :message, "Message" %>
-      <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message" %>
-    
+      <%= text_area_tag :message, nil, class: "form-control", placeholder: "Enter Message", required: "required" %>
+
     </div>
-       <%= submit_tag "Send", class:  "btn btn-default" %> 
+       <%= submit_tag "Send", class:  "btn btn-default" %>
     </div>
 </div>
 
 <% end %>
 
 
-# we need to build a test for the contact form. I've found some useful information on http://everydayrails.com/2012/03/19/testing-series-rspec-models-factory-girl.html .. should we create a new file in models for contact and write the tests like: require 'spec_helper'
+<!--we need to build a test for the contact form. I've found some useful information on http://everydayrails.com/2012/03/19/testing-series-rspec-models-factory-girl.html .. should we create a new file in models for contact and write the tests like: require 'spec_helper'
 
 describe Contact do
   it "has a valid factory"
   it "is invalid without a firstname"
   it "is invalid without a lastname"
   it "returns a contact's full name as a string"
-end ?
+end ? -->
